@@ -62,7 +62,9 @@
         <script src="@Url.Content("~/scripts/DataTables-1.10.2/dataTables.bootstrap.js")"></script>
         <script type="text/javascript">
             $(document).ready(function () {
-                $('.table').dataTable();
+                $('.table').dataTable({
+                    "order": [[1, "asc"]]
+                });
             });
         </script>
     }
