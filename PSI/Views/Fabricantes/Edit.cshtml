@@ -9,8 +9,7 @@
     @Html.AntiForgeryToken()
     <div class="panel panel-primary">
         <div class="panel-heading">
-            Alteração dos dados de um FABRICANTE
-        </div>
+            Alteração dos dados de <b>@Html.DisplayFor(model => model.Nome)</b>
         <div class="panel-body">
             <div class="form-horizontal">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
