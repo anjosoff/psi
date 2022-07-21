@@ -5,7 +5,8 @@
 }
 <div class="panel panel-primary">
     <div class="panel-heading">
-        Dados de <b>@Html.DisplayFor(model => model.Nome)</b> 
+        Dados da categoria a ser removida
+    </div>
     <div class="panel-body">
         <div class="form-group">
             @Html.LabelFor(model => model.Nome)<br />
@@ -27,7 +28,7 @@
         {
             @Html.AntiForgeryToken()
             <input type="submit" value="Remover CATEGORIA" class="btn btn-danger" />
-            @Html.ActionLink("Retornar para a listagem de Categorias", "Index", null,
+            @Html.ActionLink("Retornar para a listagem", "Index", null,
             new { @class = "btn btn-info" })
         }
     </div>

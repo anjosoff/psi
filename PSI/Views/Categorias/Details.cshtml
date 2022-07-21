@@ -1,11 +1,11 @@
 ﻿@model PSI.Models.Categoria
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Visualizando detalhes de uma CATEGORAI";
+    ViewBag.Title = "Visualizando detalhes de um Categoria";
 }
 <div class="panel panel-primary">
     <div class="panel-heading">
-        Visualizando detalhes de <b>@Html.DisplayFor(model => model.Nome)</b>
+        Visualizando detalhes de uma CATEGORIA
     </div>
     <div class="panel-body">
         <div class="form-group">
@@ -26,7 +26,7 @@
     <div class="panel-footer panel-info">
         @Html.ActionLink("Alterar", "Edit", new { id = Model.CategoriaId },
         new { @class = "btn btn-info" })
-        @Html.ActionLink("Retornar para a listagem de ", "Index", null,
+        @Html.ActionLink("Retornar para a listagem", "Index", null,
         new { @class = "btn btn-info" })
     </div>
-</div>
+</div></div>
