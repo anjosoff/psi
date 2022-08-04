@@ -4,6 +4,11 @@
 ## *Cronograma*
 
 
+### *Importante!!*
+> executar esse comando no consoled de gerenciador de pacotes
+```ssh
+Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r
+```
 | Capitulo                                                                     |         Descrição                 |
 |------------------------------------------------------------------------------|-----------------------------------|
 |01 - A primeira aplicação ASP.NET MVC                                          |    Criação de CRUD simples        |
