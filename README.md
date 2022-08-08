@@ -1,5 +1,5 @@
 # 📁 Repositório de **Programação de Sistema para Internet**
-> Professor George Azevendo 
+> Professor George Azevedo 
 
 ## *Cronograma*
 
