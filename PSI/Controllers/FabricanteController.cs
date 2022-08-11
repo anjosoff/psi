@@ -1,5 +1,4 @@
-﻿using PSI.Context;
-using PSI.Models;
+﻿using PSI.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -93,9 +92,8 @@ namespace PSI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fabricante fabricante = context.Fabricantes.Find(id);
-            // Fabricante fabricante = fabricantes.Where(m => m.FabricanteId == id).First();
-
+            Fabricante fabricante = context.Fabricantes.Where(f => f.FabricanteId == id).
+            Include("Produtos.Categoria").First();
             if (fabricante == null)
             {
                 return HttpNotFound();

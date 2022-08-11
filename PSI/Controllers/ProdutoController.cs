@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using PSI.Context;
 using System.Data.Entity;
 using PSI.Models;
 using System.Net;
@@ -13,12 +12,11 @@ namespace PSI.Controllers
     public class ProdutosController : Controller
     {
         private EFContext context = new EFContext();
-        // GET: Produtos
+       
         public ActionResult Index()
         {
             var produtos =
-            context.Produtos.Include(c => c.Categoria).Include(f => f.Fabricante).
-            OrderBy(n => n.Nome);
+            context.Produtos.Include(c => c.Categoria).Include(f => f.Fabricante).OrderBy(n => n.Nome);
             return View(produtos);
         }
         // GET: Produtos/Create
@@ -32,22 +30,22 @@ namespace PSI.Controllers
         }
         // POST: Produtos/Create
         [HttpPost]
-        public ActionResult Create(Produto produto)
-        {
-            try
+            public ActionResult Create(Produto produto)
             {
-                // TODO: Add insert logic here
-                context.Produtos.Add(produto);
-                context.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    // TODO: Add insert logic here
+                    context.Produtos.Add(produto);
+                    context.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    return View(produto);
+                }
             }
-            catch
-            {
-                return View(produto);
-            }
-        }
-        // GET: Produtos/Edit/5
-        public ActionResult Edit(long? id)
+    // GET: Produtos/Edit/5
+    public ActionResult Edit(long? id)
         {
             if (id == null)
             {
