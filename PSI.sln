@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.32413.511
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSI", "PSI\PSI.csproj", "{A1EDC9BE-D70E-4A08-810C-31C002A4523E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo", "Modelo1\Modelo.csproj", "{39159E39-3FCE-4634-92A8-02B5219FA92C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistencia", "Persistencia\Persistencia.csproj", "{4E203DF7-8405-4F8E-BA79-582425D84091}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{A1EDC9BE-D70E-4A08-810C-31C002A4523E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1EDC9BE-D70E-4A08-810C-31C002A4523E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1EDC9BE-D70E-4A08-810C-31C002A4523E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39159E39-3FCE-4634-92A8-02B5219FA92C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39159E39-3FCE-4634-92A8-02B5219FA92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39159E39-3FCE-4634-92A8-02B5219FA92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39159E39-3FCE-4634-92A8-02B5219FA92C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E203DF7-8405-4F8E-BA79-582425D84091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E203DF7-8405-4F8E-BA79-582425D84091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E203DF7-8405-4F8E-BA79-582425D84091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E203DF7-8405-4F8E-BA79-582425D84091}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

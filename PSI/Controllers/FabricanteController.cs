@@ -1,6 +1,8 @@
 ﻿using PSI.Context;
-using PSI.Models;
+
 using System;
+using Modelo.Cadastros;
+using Modelo.Tabelas;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;

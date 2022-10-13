@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Modelo.Cadastros;
+using Modelo.Tabelas;
 using PSI.Context;
 using System.Data.Entity;
-using PSI.Models;
 using System.Net;
 
 namespace PSI.Controllers

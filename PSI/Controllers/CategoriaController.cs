@@ -1,5 +1,6 @@
 ﻿using PSI.Context;
-using PSI.Models;
+using Modelo.Cadastros;
+using Modelo.Tabelas;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 
 namespace PSI.Controllers
 {
