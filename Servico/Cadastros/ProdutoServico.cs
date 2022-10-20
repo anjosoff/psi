@@ -1,5 +1,7 @@
 ﻿using Modelo.Cadastros;
 using Persistencia.DAL.Cadastros;
+using System.Linq;
+
 namespace Servico.Cadastros
 {
     public class ProdutoServico

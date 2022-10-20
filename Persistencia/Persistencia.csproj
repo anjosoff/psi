@@ -49,18 +49,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexts\EFContext.cs" />
+    <Compile Include="DAL\Cadastro\FabricanteDAL.cs" />
+    <Compile Include="DAL\Cadastro\ProdutoDAL.cs" />
+    <Compile Include="DAL\Tabela\CategoriaDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Modelo1\Modelo.csproj">
-      <Project>{39159E39-3FCE-4634-92A8-02B5219FA92C}</Project>
+      <Project>{39159e39-3fce-4634-92a8-02b5219fa92c}</Project>
       <Name>Modelo</Name>
     </ProjectReference>
   </ItemGroup>
