@@ -1,13 +1,7 @@
-﻿using PSI.Context;
-
-using System;
-using Modelo.Cadastros;
-using Modelo.Tabelas;
-using System.Collections.Generic;
+﻿using Modelo.Cadastros;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 
 namespace PSI.Controllers

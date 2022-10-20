@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Modelo.Cadastros;
-using Modelo.Tabelas;
-using PSI.Context;
-using System.Data.Entity;
 using System.Net;
 using Servico.Cadastros;
 using Servico.Tabelas;
