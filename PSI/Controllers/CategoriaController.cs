@@ -4,113 +4,109 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using System.Xml.Linq;
-using  Peristencia
+using Servico.Cadastros;
+using Servico.Tabelas;
+
+
+
 namespace PSI.Controllers
+
 {
     public class CategoriasController : Controller
     {
-        public EFContext context = new EFContext();
-        //private static IList<Categoria> categorias = new List<Categoria>()
-        //{
-        //    new Categoria() { CategoriaId = 1, Nome = "Notebooks"},
-        //    new Categoria() { CategoriaId = 2, Nome = "Monitores"},
-        //    new Categoria() { CategoriaId = 3, Nome = "Impressoras"},
-        //    new Categoria() { CategoriaId = 4, Nome = "Mouses"},
-        //    new Categoria() { CategoriaId = 5, Nome = "Desktops"}
-        //};
+        // private EFContext context = new EFContext();
+        private CategoriaServico CategoriaServico = new CategoriaServico();
 
-        // GET: Categorias
-        public ActionResult Index() => View(context.Categorias.OrderBy(c => c.Nome));
-
-        // GET: Categorias
-        public ActionResult Create() => View();
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Categoria categoria)
+        private ActionResult ObterVisaoCategoriaPorId(long? id)
         {
-            //categorias.Add(categoria);
-            //categoria.CategoriaId = categorias.Select(m => m.CategoriaId).Max() + 1;
-            context.Categorias.Add(categoria);
-            context.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        public ActionResult Edit(long id)
-        {
-#pragma warning disable CS0472 // O resultado da expressão é sempre o mesmo, pois um valor deste tipo nunca é 'null' 
             if (id == null)
-#pragma warning restore CS0472 // O resultado da expressão é sempre o mesmo, pois um valor deste tipo nunca é 'null' 
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new HttpStatusCodeResult(
+                HttpStatusCode.BadRequest);
             }
-            Categoria categoria = context.Categorias.Find(id);
-            if (categoria == null)
+            Categoria Categoria = CategoriaServico.ObterCategoriaPorId((long)id);
+            if (Categoria == null)
             {
                 return HttpNotFound();
             }
-            return View(categoria);
+            return View(Categoria);
         }
 
+        private ActionResult GravarCategoria(Categoria Categoria)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    CategoriaServico.GravarCategoria(Categoria);
+                    return RedirectToAction("Index");
+                }
+                return View(Categoria);
+            }
+            catch
+            {
+                return View(Categoria);
+            } //a
+        }
+
+        // GET: Categorias
+        public ActionResult Index()
+        {
+            return View(CategoriaServico.ObterCategoriasClassificadasPorNome());
+        }
+        // GET: Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Categoria categoria)
+        public ActionResult Create(Categoria Categoria)
         {
-            if (ModelState.IsValid)
-            {
-                
-
-
-                context.Entry(categoria).State = EntityState.Modified;
-                context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(categoria);
+            return GravarCategoria(Categoria);
         }
-
+        // GET: Edit
+        public ActionResult Edit(long? id)
+        {
+            return ObterVisaoCategoriaPorId(id);
+        }
+        // POST: Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Categoria Categoria)
+        {
+            return GravarCategoria(Categoria);
+        }
+        // GET: Details
         public ActionResult Details(long? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Categoria categoria = context.Categorias.Find(id);
-            
-            if (categoria == null)
-            {
-                return HttpNotFound();
-            }
-            return View(categoria);
+            return ObterVisaoCategoriaPorId(id);
         }
 
+
+
+        // GET: Delete
         public ActionResult Delete(long? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Categoria categoria = context.Categorias.Find(id);
-
-            //Fabricante fabricante = fabricantes.Where(m => m.FabricanteId == id).First();
-            if (categoria == null)
-            {
-                return HttpNotFound();
-            }
-            return View(categoria);
+            return ObterVisaoCategoriaPorId(id);
         }
-
+        // POST: Delete
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(long id)
         {
-            //categorias.Remove(
-            //categorias.Where(c => c.CategoriaId == categoria.CategoriaId).First());
-            Categoria categoria = context.Categorias.Find(id);
-            context.Categorias.Remove(categoria);
-            context.SaveChanges();
-
-            TempData["Message"] = "Fabricante " + categoria.Nome.ToUpper() + " foi removido";
-            return RedirectToAction("Index");
+            try
+            {
+                Categoria Categoria = CategoriaServico.EliminarCategoriaPorId(id);
+                TempData["Message"] = "Categoria " + Categoria.Nome.ToUpper() + " foi removido";
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

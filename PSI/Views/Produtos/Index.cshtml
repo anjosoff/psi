@@ -1,14 +1,12 @@
 ﻿@model IEnumerable<Modelo.Cadastros.Produto>
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Listagem de PRODUTOS";
-}
+
+@{ Layout = "~/Views/Shared/_Layout.cshtml";
+                ViewBag.Title = "Listagem de PRODUTOS"; }
 @if (@TempData["Message"] != null)
 {
-    <div class="alert alert-success" role="alert">
-        @TempData["Message"]
-    </div>
-}
+<div class="alert alert-success" role="alert">
+    @TempData["Message"]
+</div>}
 <div class="panel panel-primary">
     <div class="panel-heading">
         Relação de PRODUTOS registrados
@@ -30,32 +28,31 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ProdutoId)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Nome)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Categoria.Nome)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Fabricante.Nome)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Alterar", "Edit", new { id = item.ProdutoId }) |
-                            @Html.ActionLink("Detalhes", "Details", new { id = item.ProdutoId }) |
-                            @Html.ActionLink("Eliminar", "Delete", new { id = item.ProdutoId })
-                        </td>
-                    </tr>
-                }
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProdutoId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fabricante.Nome)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Edit", new { id = item.ProdutoId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id = item.ProdutoId }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.ProdutoId })
+        </td>
+    </tr>}
             </tbody>
         </table>
     </div>
     <div class="panel-footer panel-info">
         @Html.ActionLink("Registrar um novo PRODUTO", "Create", null,
-        new { @class = "btn btn-success" })
+             new { @class = "btn btn-success" })
     </div>
 </div>
 @section styles{
@@ -66,12 +63,12 @@
     <script src=" @Url.Content("~/scripts/DataTables/jquery. dataTables.js")"></script>
     <script src="@Url.Content("~/scripts/DataTables/dataTables.bootstrap.js")"></script>
     <script type="text/javascript">
-$(document).ready(function () {
-$('li').removeClass("active");
-$('#liProdutos').addClass("active");
-$('.table').dataTable({
-"order": [[1, "asc"]]
-});
-});
+        $(document).ready(function () {
+            $('li').removeClass("active");
+            $('#liProdutos').addClass("active");
+            $('.table').dataTable({
+                "order": [[1, "asc"]]
+            });
+        });
     </script>
 }
